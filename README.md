@@ -1,7 +1,7 @@
 # springboot-dubbox
 基于spring-boot dubbox搭建的java分布式系统
 - 前后端分离
-- 前端管理项目 https://github.com/zhangxd1989/springboot-dubbox-web
+- 前端管理项目 https://github.com/hlb1989/springboot-dubbox-web
 - spring-security基于角色的权限管理
 - 统一异常管理
 - spring-data-redis整合
@@ -21,7 +21,7 @@
 
 ---
 
-- 项目依赖Mysql、Zookeeper、Redis
+- 项目依赖Mysql、Zookeeper、Redis、Rabbitmq、oss
 - platform-admin-web为管理平台接口
 - platform-mobile-client为移动客户端接口
 - platform-system为服务提供者

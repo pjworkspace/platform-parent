@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>platform-parent</artifactId>
-        <groupId>cn.zhangxd</groupId>
+        <groupId>cn.hlb</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -19,6 +19,8 @@
         <module>platform-common-service</module>
         <module>platform-common-api</module>
         <module>platform-common-web</module>
+        <module>platfrom-common-mq</module>
+        <module>platfrom-common-oss</module>
     </modules>
 
 </project>

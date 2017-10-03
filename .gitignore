@@ -24,5 +24,6 @@ target/
 Thumbs.db
 
 # project ignore
+db-script/
 **/tmp
 pom.xml.versionsBackup
