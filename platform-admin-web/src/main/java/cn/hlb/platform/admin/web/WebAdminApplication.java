@@ -48,9 +48,9 @@ public class WebAdminApplication /*extends WebMvcConfigurerAdapter*/{
 //     * @return the string
 //     */
 //    @RequestMapping
-    public String hello() {
-        return "Hello World!";
-    }
+//    public String hello() {
+//        return "Hello World!";
+//    }
 
     /**
      * The entry point of application.
