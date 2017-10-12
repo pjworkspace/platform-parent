@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>platform-parent</artifactId>
-        <groupId>cn.zhangxd</groupId>
+        <groupId>cn.hlb</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -12,7 +12,7 @@
     <artifactId>platform-admin-web</artifactId>
 
     <properties>
-        <start-class>cn.zhangxd.platform.admin.web.WebAdminApplication</start-class>
+        <start-class>cn.hlb.platform.admin.web.WebAdminApplication</start-class>
     </properties>
 
     <profiles>
@@ -84,9 +84,20 @@
 
     <dependencies>
         <dependency>
-            <groupId>cn.zhangxd</groupId>
+            <groupId>cn.hlb</groupId>
             <artifactId>platform-common-web</artifactId>
             <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sourceforge.nekohtml</groupId>
+            <artifactId>nekohtml</artifactId>
+            <version>1.9.22</version>
         </dependency>
     </dependencies>
 
