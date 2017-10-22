@@ -7,10 +7,10 @@ import cn.hlb.platform.mobile.client.common.controller.BaseController;
 import cn.hlb.platform.mobile.client.constant.Message;
 import cn.hlb.platform.mobile.client.constant.ReturnCode;
 import cn.hlb.platform.mobile.client.security.model.AuthUser;
-import cn.hlb.platform.system.api.entity.TripUser;
+import cn.hlb.platform.system.api.entity.AppUser;
 import cn.hlb.platform.system.api.exception.InvalidCaptchaException;
 import cn.hlb.platform.system.api.service.ICaptchaService;
-import cn.hlb.platform.system.api.service.ITripUserService;
+import cn.hlb.platform.system.api.service.IAppUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -51,7 +51,7 @@ public class UserController extends BaseController {
      * 用户服务
      */
     @Autowired
-    private ITripUserService tripUserService;
+    private IAppUserService appUserService;
     /**
      * 验证码服务
      */
@@ -93,12 +93,12 @@ public class UserController extends BaseController {
         //校验验证码
         captchaService.validCaptcha(mobile, captcha);
 
-        TripUser user = new TripUser();
+        AppUser user = new AppUser();
         user.setMobile(mobile);
         user.setPassword(passwordEncoder.encode(password));
         System.out.println(passwordEncoder.encode(password));
         // 注册
-        tripUserService.registryUser(mobile, passwordEncoder.encode(password));
+        appUserService.registryUser(mobile, passwordEncoder.encode(password));
 
         Map<String, Object> message = new HashMap<>();
         message.put(Message.RETURN_FIELD_CODE, ReturnCode.SUCCESS);
@@ -124,7 +124,7 @@ public class UserController extends BaseController {
     ) {
         AuthUser user = WebUtils.getCurrentUser();
 
-        TripUser tripUser = tripUserService.get(user.getId());
+        AppUser tripUser = appUserService.get(user.getId());
 
         Map<String, Object> result = new HashMap<>();
         result.put("mobile", tripUser.getMobile()); //手机号
@@ -166,11 +166,11 @@ public class UserController extends BaseController {
     ) {
         AuthUser user = WebUtils.getCurrentUser();
 
-        TripUser tripUser = new TripUser(user.getId());
+        AppUser tripUser = new AppUser(user.getId());
         tripUser.setNickname(nickname);
         tripUser.setGender(gender);
         tripUser.setAge(age);
-        tripUserService.updateInfo(tripUser);
+        appUserService.updateInfo(tripUser);
 
         Map<String, Object> message = new HashMap<>();
         message.put(Message.RETURN_FIELD_CODE, ReturnCode.SUCCESS);
@@ -202,7 +202,7 @@ public class UserController extends BaseController {
         captchaService.validCaptcha(mobile, captcha);
 
         // 忘记密码
-        tripUserService.updatePasswordByMobile(mobile, passwordEncoder.encode(password));
+        appUserService.updatePasswordByMobile(mobile, passwordEncoder.encode(password));
 
         Map<String, Object> message = new HashMap<>();
         message.put(Message.RETURN_FIELD_CODE, ReturnCode.SUCCESS);
@@ -231,10 +231,10 @@ public class UserController extends BaseController {
         String path = "";
         if (photo != null && photo.getSize() > 0) {
             AuthUser user = WebUtils.getCurrentUser();
-            FileIndex ufi = WebUtils.buildFileIndex(photo, TripUser.IMAGE_FOLDER);
+            FileIndex ufi = WebUtils.buildFileIndex(photo, AppUser.IMAGE_FOLDER);
             ufi = fileManager.save(ufi);
             path = ufi.getPath();
-            tripUserService.updatePhotoByUserId(user.getId(), path);
+            appUserService.updatePhotoByUserId(user.getId(), path);
         }
 
         Map<String, Object> message = new HashMap<>();

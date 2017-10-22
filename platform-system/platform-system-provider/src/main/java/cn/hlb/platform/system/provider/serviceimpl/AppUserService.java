@@ -1,9 +1,9 @@
 package cn.hlb.platform.system.provider.serviceimpl;
 
 import cn.hlb.platform.common.service.service.CrudService;
-import cn.hlb.platform.system.api.entity.TripUser;
-import cn.hlb.platform.system.api.service.ITripUserService;
-import cn.hlb.platform.system.provider.mapper.TripUserMapper;
+import cn.hlb.platform.system.api.entity.AppUser;
+import cn.hlb.platform.system.api.service.IAppUserService;
+import cn.hlb.platform.system.provider.mapper.AppUserMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,16 +14,16 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Transactional(readOnly = true)
-public class TripUserService extends CrudService<TripUserMapper, TripUser> implements ITripUserService {
+public class AppUserService extends CrudService<AppUserMapper, AppUser> implements IAppUserService {
 
     @Override
-    public TripUser getByMobile(String mobile) {
+    public AppUser getByMobile(String mobile) {
         return getDao().getByMobile(mobile);
     }
 
     @Override
     @Transactional(readOnly = false)
-    public void updateInfo(TripUser tripUser) {
+    public void updateInfo(AppUser tripUser) {
         tripUser.preUpdate();
         getDao().updateInfo(tripUser);
     }
@@ -32,13 +32,13 @@ public class TripUserService extends CrudService<TripUserMapper, TripUser> imple
     @Transactional(readOnly = false)
     public void registryUser(String mobile, String password) {
         // 用户已存在不做处理，防止客户端重复提交
-        TripUser oldUser = getByMobile(mobile);
+        AppUser oldUser = getByMobile(mobile);
         if (oldUser != null) {
             return;
         }
 
         //插入用户信息
-        TripUser user = new TripUser();
+        AppUser user = new AppUser();
         user.preInsert();
         user.setMobile(mobile);
         user.setPassword(password);

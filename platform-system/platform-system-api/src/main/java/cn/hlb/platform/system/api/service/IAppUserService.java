@@ -3,7 +3,7 @@ package cn.hlb.platform.system.api.service;
 
 import com.github.pagehelper.PageInfo;
 import cn.hlb.platform.common.api.Paging;
-import cn.hlb.platform.system.api.entity.TripUser;
+import cn.hlb.platform.system.api.entity.AppUser;
 
 import java.util.Map;
 
@@ -12,7 +12,7 @@ import java.util.Map;
  *
  * @author hlb
  */
-public interface ITripUserService {
+public interface IAppUserService {
 
     /**
      * 查询用户列表
@@ -21,7 +21,7 @@ public interface ITripUserService {
      * @param query 查询条件
      * @return 用户 page info
      */
-    PageInfo<TripUser> queryPage(Paging page, Map<String, Object> query);
+    PageInfo<AppUser> queryPage(Paging page, Map<String, Object> query);
 
     /**
      * 通过id查询用户信息
@@ -29,7 +29,7 @@ public interface ITripUserService {
      * @param id 用户id
      * @return 用户信息 trip user
      */
-    TripUser get(String id);
+    AppUser get(String id);
 
     /**
      * 通过手机号查询用户信息
@@ -37,14 +37,14 @@ public interface ITripUserService {
      * @param mobile 手机号
      * @return 用户信息 by mobile
      */
-    TripUser getByMobile(String mobile);
+    AppUser getByMobile(String mobile);
 
     /**
      * 保存用户
      *
      * @param entity 用户信息
      */
-    void updateInfo(TripUser entity);
+    void updateInfo(AppUser entity);
 
     /**
      * 注册用户

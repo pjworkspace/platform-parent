@@ -18,9 +18,9 @@ public abstract class DataEntity extends BaseEntity {
      */
     public static final String DEL_FLAG_NORMAL = "0";
     /**
-     * 删除标记1：删除
+     * 删除标记3：删除
      */
-    public static final String DEL_FLAG_DELETE = "1";
+    public static final String DEL_FLAG_DELETE = "3";
 
     /**
      * 创建日期

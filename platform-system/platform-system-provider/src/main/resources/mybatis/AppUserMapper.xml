@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.hlb.platform.system.provider.mapper.TripUserMapper">
+<mapper namespace="cn.hlb.platform.system.provider.mapper.AppUserMapper">
 
     <sql id="selectColumns">
         SELECT
@@ -15,20 +15,20 @@
             a.`update_date`,
             a.`enabled`,
             a.`remarks`
-        FROM trip_user a
+        FROM app_user a
     </sql>
 
-    <select id="getByMobile" resultType="cn.hlb.platform.system.api.entity.TripUser">
+    <select id="getByMobile" resultType="cn.hlb.platform.system.api.entity.AppUser">
         <include refid="selectColumns"/>
         WHERE a.`mobile` = #{mobile}
     </select>
 
-    <select id="get" resultType="cn.hlb.platform.system.api.entity.TripUser">
+    <select id="get" resultType="cn.hlb.platform.system.api.entity.AppUser">
         <include refid="selectColumns"/>
         WHERE a.`id` = #{id}
     </select>
 
-    <select id="queryList" resultType="cn.hlb.platform.system.api.entity.TripUser">
+    <select id="queryList" resultType="cn.hlb.platform.system.api.entity.AppUser">
         <include refid="selectColumns"/>
         WHERE a.del_flag = '0'
         <if test="gender != null and gender != ''">
@@ -55,7 +55,7 @@
 
     <!-- 插入用户 -->
     <insert id="insert">
-        INSERT INTO trip_user (
+        INSERT INTO app_user (
             `id`,
             `mobile`,
             `password`,
@@ -84,7 +84,7 @@
 
     <!-- 修改用户 -->
     <update id="updateInfo">
-        UPDATE trip_user
+        UPDATE app_user
         <set>
             `nickname` = #{nickname},
             `gender` = #{gender},
@@ -96,7 +96,7 @@
 
     <!-- 更新用户密码 -->
     <update id="updatePasswordByMobile">
-        UPDATE trip_user
+        UPDATE app_user
         SET
             `password` = #{password}
         WHERE `mobile` = #{mobile}
@@ -104,7 +104,7 @@
 
     <!-- 更新头像 -->
     <update id="updatePhotoByUser">
-        UPDATE trip_user
+        UPDATE app_user
         SET
             `photo` = #{photo}
         WHERE `id` = #{userId}

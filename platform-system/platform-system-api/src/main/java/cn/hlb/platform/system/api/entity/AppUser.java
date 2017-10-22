@@ -9,7 +9,7 @@ import org.hibernate.validator.constraints.Length;
  *
  * @author hlb
  */
-public class TripUser extends DataEntity {
+public class AppUser extends DataEntity {
     /**
      * 图片存储地址
      */
@@ -52,11 +52,11 @@ public class TripUser extends DataEntity {
      */
     private String remarks;
 
-    public TripUser() {
+    public AppUser() {
         super();
     }
 
-    public TripUser(String id) {
+    public AppUser(String id) {
         super(id);
     }
 

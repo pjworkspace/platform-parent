@@ -2,7 +2,7 @@ package cn.hlb.platform.system.provider.mapper;
 
 
 import cn.hlb.platform.common.service.dao.CrudDao;
-import cn.hlb.platform.system.api.entity.TripUser;
+import cn.hlb.platform.system.api.entity.AppUser;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -12,7 +12,7 @@ import org.apache.ibatis.annotations.Param;
  * @author hlb
  */
 @Mapper
-public interface TripUserMapper extends CrudDao<TripUser> {
+public interface AppUserMapper extends CrudDao<AppUser> {
 
     /**
      * 根据手机号码查询用户
@@ -20,7 +20,7 @@ public interface TripUserMapper extends CrudDao<TripUser> {
      * @param mobile the mobile
      * @return the by mobile
      */
-    TripUser getByMobile(String mobile);
+    AppUser getByMobile(String mobile);
 
     /**
      * 根据手机号码修改密码
@@ -46,5 +46,5 @@ public interface TripUserMapper extends CrudDao<TripUser> {
      * @param user the user
      * @return the int
      */
-    int updateInfo(TripUser user);
+    int updateInfo(AppUser user);
 }

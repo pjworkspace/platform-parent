@@ -19,6 +19,7 @@
         <module>platform-common-service</module>
         <module>platform-common-api</module>
         <module>platform-common-web</module>
+        <module>platform-common-admin-web</module>
         <module>platfrom-common-mq</module>
         <module>platfrom-common-oss</module>
     </modules>
