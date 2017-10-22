@@ -13,8 +13,8 @@
     <dubbo:service interface="cn.hlb.platform.system.api.service.ISystemService"
                    ref="systemService" protocol="dubbo" timeout="5000"/>
 
-    <dubbo:service interface="cn.hlb.platform.system.api.service.ITripUserService"
-                   ref="tripUserService" protocol="dubbo" timeout="5000"/>
+    <dubbo:service interface="cn.hlb.platform.system.api.service.IAppUserService"
+                   ref="appUserService" protocol="dubbo" timeout="5000"/>
 
     <dubbo:service interface="cn.hlb.platform.system.api.service.ICaptchaService"
                    ref="captchaService" protocol="dubbo" timeout="5000"/>

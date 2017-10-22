@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<message-consumer-mapping>
+	<consumerSources>
+		<consumerSource name="p2p" description="p2p平台">
+			<queue queueName="p2p1.queue"  mirror="true" mirrorNumber="1" mirrorNodes=""></queue>
+		</consumerSource>
+        <consumerSource name="pay" description="支付平台">
+            <queue queueName="pay.queue"  mirror="true" mirrorNumber="1" mirrorNodes=""></queue>
+        </consumerSource>
+	</consumerSources>
+	<messages>
+		<message businessType="createAccount" exchange="account.exchange" exchangeType="topic" trace="true" description="创建账户的topic">
+			<queue queueName="p2p1.queue" routingkey="createAccount"></queue>
+            <queue queueName="p2p2.queue" routingkey="createAccount"></queue>
+		</message>
+        <message businessType="register" exchange="register.exchange" exchangeType="topic" trace="true" description="注册账户的topic">
+            <queue queueName="pay.queue" routingkey="register"></queue>
+        </message>
+	</messages>
+</message-consumer-mapping>

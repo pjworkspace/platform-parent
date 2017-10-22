@@ -20,7 +20,9 @@
         <module>platform-common-api</module>
         <module>platform-common-web</module>
        <!-- <module>platfrom-common-mq</module>
-        <module>platfrom-common-oss</module>-->
+        <module>platfrom-common-oss</module> -->
+        <module>platfrom-common-mq</module>
+        <module>platfrom-common-oss</module>
     </modules>
 
 </project>

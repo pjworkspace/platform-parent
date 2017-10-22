@@ -2,13 +2,13 @@ package cn.hlb.platform.system.provider.serviceimpl;
 
 import cn.hlb.platform.common.redis.RedisRepository;
 import cn.hlb.platform.common.utils.RandomHelper;
-import cn.hlb.platform.system.api.entity.TripUser;
+import cn.hlb.platform.system.api.entity.AppUser;
 import cn.hlb.platform.system.api.exception.InvalidCaptchaException;
 import cn.hlb.platform.system.api.exception.UserExistException;
 import cn.hlb.platform.system.api.exception.UserNotExistException;
 import cn.hlb.platform.system.api.exception.base.BusinessException;
 import cn.hlb.platform.system.api.service.ICaptchaService;
-import cn.hlb.platform.system.api.service.ITripUserService;
+import cn.hlb.platform.system.api.service.IAppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,7 +26,7 @@ public class CaptchaService implements ICaptchaService {
      * 用户服务
      */
     @Autowired
-    private ITripUserService tripUserService;
+    private IAppUserService appUserService;
     /**
      * redis repository
      */
@@ -39,7 +39,7 @@ public class CaptchaService implements ICaptchaService {
 
     @Override
     public void sendCaptcha4Registry(String mobile) throws BusinessException {
-        TripUser user = tripUserService.getByMobile(mobile);
+        AppUser user = appUserService.getByMobile(mobile);
         // 注册,如果用户存在
         if (user != null) {
             throw new UserExistException(String.format("手机号 '%s' 已经注册,直接登录", mobile));
@@ -50,7 +50,7 @@ public class CaptchaService implements ICaptchaService {
 
     @Override
     public void sendCaptcha4Forget(String mobile) throws BusinessException {
-        TripUser user = tripUserService.getByMobile(mobile);
+        AppUser user = appUserService.getByMobile(mobile);
         // 忘记密码,如果用户不存在
         if (user == null) {
             throw new UserNotExistException(String.format(" 手机号 '%s' 未注册", mobile));

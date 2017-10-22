@@ -2,9 +2,9 @@ package cn.hlb.platform.mobile.client.security;
 
 import cn.hlb.platform.mobile.client.security.model.AuthUserFactory;
 import cn.hlb.platform.system.api.entity.SysUser;
-import cn.hlb.platform.system.api.entity.TripUser;
+import cn.hlb.platform.system.api.entity.AppUser;
 import cn.hlb.platform.system.api.service.ISystemService;
-import cn.hlb.platform.system.api.service.ITripUserService;
+import cn.hlb.platform.system.api.service.IAppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -23,14 +23,14 @@ public class UserDetailsServiceImpl implements UserDetailsService {
      * 用户服务
      */
     @Autowired
-    private ITripUserService tripUserService;
+    private IAppUserService appUserService;
 
     @Autowired
     private ISystemService systemService;
 
     @Override
     public UserDetails loadUserByUsername(String loginName) {
-        TripUser user = tripUserService.getByMobile(loginName);
+        AppUser user = appUserService.getByMobile(loginName);
         if (user == null) {
             throw new UsernameNotFoundException(String.format("No user found with username '%s'.", loginName));
         } else {

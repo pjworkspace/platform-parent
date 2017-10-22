@@ -1,6 +1,6 @@
 package cn.hlb.platform.mobile.client.security.model;
 
-import cn.hlb.platform.system.api.entity.TripUser;
+import cn.hlb.platform.system.api.entity.AppUser;
 
 /**
  * The type Auth user factory.
@@ -18,7 +18,7 @@ public final class AuthUserFactory {
      * @param user the user
      * @return the auth user
      */
-    public static AuthUser create(TripUser user) {
+    public static AuthUser create(AppUser user) {
         return new AuthUser(
             user.getId(),
             user.getMobile(),
