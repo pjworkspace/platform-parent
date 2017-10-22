@@ -1,3 +1,4 @@
+/*
 package cn.hlb.platform.system.provider.amqp;
 
 import org.springframework.amqp.core.Queue;
@@ -41,4 +42,4 @@ public class SampleAmqpSimpleApplication {
         System.out.println(new Date() + ": " + foo);
     }
 
-}
+}*/
