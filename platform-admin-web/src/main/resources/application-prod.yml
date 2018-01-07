@@ -17,7 +17,15 @@ spring:
       location: /tmp # Intermediate location of uploaded files.
       max-file-size: 5Mb # Max file size. Values can use the suffixed "MB" or "KB" to indicate a Megabyte or Kilobyte size.
       max-request-size: 50Mb # Max request size. Values can use the suffixed "MB" or "KB" to indicate a Megabyte or Kilobyte size.
-
+  thymeleaf:
+      prefix: classpath:/templates/
+      suffix: .html
+      mode: LEGACYHTML5
+      encoding: UTF-8
+      content-type: text/html
+      cache: false
+  mvc:
+    static-path-pattern: /static/**
 server:
   port: 8080
   tomcat:
@@ -31,5 +39,5 @@ security:
 
 upload:
   #Disk upload
-  work-folder-name: /Users/zhangxd/files #文件存储路径
+  work-folder-name: /Users/hlb/files #文件存储路径
   access-url: http://127.0.0.1:8090 #文件访问地址，可使用反向代理

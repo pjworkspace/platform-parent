@@ -27,3 +27,6 @@ Thumbs.db
 db-script/
 **/tmp
 pom.xml.versionsBackup
+/.idea/
+/tmp/
+/platform-parent.iml

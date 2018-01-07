@@ -5,10 +5,10 @@
 		http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
     <!-- dubbo注解扫描包名 -->
-    <!--<dubbo:annotation package="cn.zhangxd.platform.admin.web"/>-->
+    <!--<dubbo:annotation package="cn.hlb.platform.admin.web"/>-->
 
-    <dubbo:reference interface="cn.zhangxd.platform.system.api.service.ISystemService" id="systemService"/>
+    <dubbo:reference interface="cn.hlb.platform.system.api.service.ISystemService" id="systemService"/>
 
-    <dubbo:reference interface="cn.zhangxd.platform.system.api.service.ITripUserService" id="tripUserService"/>
+    <dubbo:reference interface="cn.hlb.platform.system.api.service.IAppUserService" id="appUserService"/>
 
 </beans>

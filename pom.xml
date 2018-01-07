@@ -68,6 +68,7 @@
         <pinyin4j.version>2.5.1</pinyin4j.version>
         <webmagic.version>0.6.1</webmagic.version>
         <kaptcha.version>2.3.2</kaptcha.version>
+        <lombok.version>1.16.16</lombok.version>
     </properties>
 
     <dependencyManagement>
@@ -81,6 +82,12 @@
                 <groupId>org.aspectj</groupId>
                 <artifactId>aspectjweaver</artifactId>
                 <version>${aspectj.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
             </dependency>
 
             <!-- dubbox -->

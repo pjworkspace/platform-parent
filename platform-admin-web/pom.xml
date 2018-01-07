@@ -49,7 +49,7 @@
                 <dubbo.container>logback,spring</dubbo.container>
                 <dubbo.shutdown.hook>true</dubbo.shutdown.hook>
                 <dubbo.application.name>platform-admin-web</dubbo.application.name>
-                <dubbo.application.owner>zhangxudong</dubbo.application.owner>
+                <dubbo.application.owner>hlb</dubbo.application.owner>
                 <dubbo.registry.protocol>zookeeper</dubbo.registry.protocol>
                 <dubbo.registry.address>127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183</dubbo.registry.address>
                 <dubbo.registry.client>curator</dubbo.registry.client>

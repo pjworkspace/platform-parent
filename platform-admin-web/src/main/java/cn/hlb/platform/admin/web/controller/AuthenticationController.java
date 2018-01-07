@@ -13,7 +13,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -52,8 +51,15 @@ public class AuthenticationController extends BaseController {
      */
     @PostMapping(value = "/token")
     public Map<String, Object> createAuthenticationToken(@RequestBody SysUser sysUser) {
+//    public Map<String, Object> createAuthenticationToken() {
 
+//        String username = super.getPara("username").trim();
+//        String password = super.getPara("password").trim();
+//        SysUser sysUser = new SysUser();
+//        sysUser.setLoginName(username);
+//        sysUser.setPassword(password);
         // Perform the security
+
         final Authentication authentication = authenticationManager.authenticate(
             new UsernamePasswordAuthenticationToken(sysUser.getLoginName(), sysUser.getPassword())
         );

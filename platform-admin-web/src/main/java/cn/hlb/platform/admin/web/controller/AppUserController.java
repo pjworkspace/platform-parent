@@ -4,8 +4,8 @@ import com.github.pagehelper.PageInfo;
 import cn.hlb.platform.admin.web.common.controller.BaseController;
 import cn.hlb.platform.common.api.Paging;
 import cn.hlb.platform.common.upload.util.FileManager;
-import cn.hlb.platform.system.api.entity.TripUser;
-import cn.hlb.platform.system.api.service.ITripUserService;
+import cn.hlb.platform.system.api.entity.AppUser;
+import cn.hlb.platform.system.api.service.IAppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -21,12 +21,12 @@ import java.util.Map;
 @Validated
 @RestController
 @RequestMapping("/trip/user")
-public class TripUserController extends BaseController {
+public class AppUserController extends BaseController {
     /**
      * 用户服务
      */
     @Autowired
-    private ITripUserService tripUserService;
+    private IAppUserService appUserService;
     /**
      * 文件管理
      */
@@ -42,8 +42,8 @@ public class TripUserController extends BaseController {
      */
     @PreAuthorize("hasAuthority('trip:user:view')")
     @GetMapping(value = "/list")
-    public PageInfo<TripUser> list(Paging page, @RequestParam Map<String, Object> query) {
-        return tripUserService.queryPage(page, query);
+    public PageInfo<AppUser> list(Paging page, @RequestParam Map<String, Object> query) {
+        return appUserService.queryPage(page, query);
     }
 
     /**
@@ -54,8 +54,8 @@ public class TripUserController extends BaseController {
      */
     @PreAuthorize("hasAuthority('trip:user:view')")
     @GetMapping(value = "/{id}")
-    public TripUser get(@PathVariable("id") String id) {
-        TripUser user = tripUserService.get(id);
+    public AppUser get(@PathVariable("id") String id) {
+        AppUser user = appUserService.get(id);
         user.setPhoto(fileManager.getFileUrlByRealPath(user.getPhoto()));
 
         return user;

@@ -21,6 +21,8 @@ public class WebSecurityConfig extends AbstractWebSecurityConfig {
             .antMatchers(
                     "/login",
                     "/static/**",
+                    "/templates/**",
+                    "/**.html",
                     "/favicon.ico"
             );
     }
@@ -42,7 +44,7 @@ public class WebSecurityConfig extends AbstractWebSecurityConfig {
 //            .logoutSuccessUrl("/login") //退出登录后的默认网址是”/home”
         security
                 .authorizeRequests()
-                .antMatchers("/", "/home","/login").permitAll()
+                .antMatchers("/", "/auth/token","/login","/*pages").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

@@ -11,16 +11,30 @@ spring:
       max-wait: -1 #最大等待时间
       min-idle: 0 #初始化连接数
   http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
     multipart:
       enabled: true # Enable support of multi-part uploads.
       file-size-threshold: 4KB # Threshold after which files will be written to disk. Values can use the suffixed "MB" or "KB" to indicate a Megabyte or Kilobyte size.
       location: /tmp # Intermediate location of uploaded files.
       max-file-size: 5Mb # Max file size. Values can use the suffixed "MB" or "KB" to indicate a Megabyte or Kilobyte size.
       max-request-size: 50Mb # Max request size. Values can use the suffixed "MB" or "KB" to indicate a Megabyte or Kilobyte size.
-
+  thymeleaf:
+      prefix: classpath:/templates/
+      suffix: .html
+      mode: LEGACYHTML5
+      encoding: UTF-8
+      content-type: text/html
+      cache: false
+  mvc:
+    static-path-pattern: /static/**
+#    resources: classpath:/templates/**
 server:
-  port: 8080
+  port: 8082
   tomcat:
+    uri-encoding: UTF-8
     accesslog:
       debug: true #请求响应数据调试
 
@@ -31,5 +45,5 @@ security:
 
 upload:
   #Disk upload
-  work-folder-name: /Users/zhangxd/files #文件存储路径
+  work-folder-name: /Users/hlb/files #文件存储路径
   access-url: http://127.0.0.1:8090 #文件访问地址，可使用反向代理

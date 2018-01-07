@@ -31,7 +31,7 @@ public abstract class DataEntity extends BaseEntity {
      */
     private Date updateDate;
     /**
-     * 删除标记(0:正常;1:删除;)
+     * 删除标记(0:正常;3:删除;)
      */
     private String delFlag;
 

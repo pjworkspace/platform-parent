@@ -1,7 +1,6 @@
 package cn.hlb.platform.mobile.client.controller;
-import cn.hlb.platform.common.utils.IdGenerator;
+
 import cn.hlb.platform.common.utils.RandomHelper;
-import org.junit.Assert;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -9,25 +8,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.crypto.password.StandardPasswordEncoder;
-import redis.clients.jedis.Jedis;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-
-import static org.apache.commons.codec.digest.DigestUtils.sha256;
-import static org.springframework.security.crypto.bcrypt.BCrypt.hashpw;
 
 public class Test {
 
@@ -35,6 +19,10 @@ public class Test {
 
     public static void main(String[] args) throws Exception {
             System.out.println(RandomHelper.randomOrderId());
+        BCryptPasswordEncoder encoder =new BCryptPasswordEncoder();
+        String  s = encoder.encode("123456");
+        System.out.println(encoder.encode("123456"));
+        System.out.println(encoder.matches("123456",s));
 //        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 //
 //        while (true) {
